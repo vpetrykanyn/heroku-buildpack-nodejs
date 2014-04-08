@@ -101,7 +101,7 @@ fi
     ssh-add id_rsa
     rm id_rsa
     # Add github to the list of known hosts
-    ssh -oStrictHostKeyChecking=no -T git@github.com    
+    ( ssh -oStrictHostKeyChecking=no -T git@github.com )
   fi  
 
   status "Installing dependencies"
