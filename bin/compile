@@ -100,8 +100,8 @@ fi
     # terminal automation tool to feed it into ssh-add.
     ssh-add id_rsa
     rm id_rsa
-    # Add github to the list of known hosts
-    ( ssh -oStrictHostKeyChecking=no -T git@github.com )
+    # Add github to the list of known hosts - ignore the warning or else set -e will abort the deployment
+    ssh -oStrictHostKeyChecking=no -T git@github.com || true
   fi  
 
   status "Installing dependencies"
