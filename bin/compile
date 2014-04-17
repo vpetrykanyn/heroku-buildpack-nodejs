@@ -69,8 +69,8 @@ elif test -d $cache_dir/node/node_modules; then
   npm prune 2>&1 | indent
 
   if test -f $cache_dir/node/.heroku/node-version && [ $(cat $cache_dir/node/.heroku/node-version) != "$node_version" ]; then
-    status "Node version changed since last build; rebuilding dependencies"
-    npm rebuild 2>&1 | indent
+    status "Node version changed since last build; dumping cached modules"
+    rm -r $build_dir/node_modules
   fi
 
 fi
