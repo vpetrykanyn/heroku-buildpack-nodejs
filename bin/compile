@@ -82,8 +82,6 @@ if [ ! -f "$build_dir/.npmrc" ]; then
   echo "ca=" > "$build_dir/.npmrc"
 fi
 
-# Scope config var availability only to `npm install`
-(
   if [ -d "$env_dir" ]; then
     status "Exporting config vars to environment"
     export_env_dir $env_dir
@@ -116,7 +114,6 @@ fi
     # Clear that sensitive key data from the environment
     export GIT_SSH_KEY=0
   fi
-)
 
 # Persist goodies like node-version in the slug
 mkdir -p $build_dir/.heroku
